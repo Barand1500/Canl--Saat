@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saat</title>
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    position: relative;
+    width: 40rem;
+    height: 40rem;
+    border: 5px solid black;
+    border-radius: 50%;
+    background: url("https://cssanimation.rocks/images/posts/clocks/ios_clock.svg") center;
+    background-repeat: no-repeat;
+    background-size: 88%;
+}
+
+.secs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 12rem;
+    width: .1rem;
+    background-color: tomato;
+    transform: translateX(-50%);
+    transform-origin: 25% 0;
+}
+
+.mins {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 9rem;
+    width: .3rem;
+    border-radius: 20px;
+    background-color: black;
+    transform: translateX(-50%);
+    transform-origin: 25% 0;
+}
+
+.hours {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 6rem;
+    width: .5rem;
+    background-color: black;
+    border-radius: 15px;
+    transform: translateX(-50%);
+    transform-origin: 50% 0;
+}
+
+.dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: black;
+    transform: translateX(-50%);
+}
+
+
+
+</style>
+
+
+</head>
+<body>
+    
+    <div class="clock">
+        <div class="secs"></div>
+        <div class="mins"></div>
+        <div class="hours"></div>
+        <div class="dot"></div>
+    </div>
+
+
+
+<script type="text/javascript">
+const sec = document.querySelector(".secs");
+const min = document.querySelector(".mins");
+const hours = document.querySelector(".hours");
+
+function tiktak() {
+    let second = new Date().getSeconds();
+    let minute = new Date().getMinutes();
+    let hour = new Date().getHours();
+
+    sec.style.transform = `rotate(${180 + (second * 6)}deg)`
+    min.style.transform = `rotate(${180 + (minute * 6)}deg)`
+    hours.style.transform = `rotate(${180 + (hour * 30)}deg)`
+}
+
+setInterval(tiktak, 1000);
+</script>
+
+
+</body>
+</html>
